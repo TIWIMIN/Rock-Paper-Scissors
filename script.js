@@ -14,7 +14,8 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let message = "3, 2, 1, Shoot!";
-    prompt(message, "rock, paper, or scissors")
+    let choice = prompt(message, "rock, paper, or scissors");
+    return choice; 
 }
 
 function playGame() {
