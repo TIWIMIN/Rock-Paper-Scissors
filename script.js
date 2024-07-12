@@ -77,6 +77,13 @@ function playGame() {
     for (let i = 0; i < 5; i++) {
         playRound(getHumanChoice(), getComputerChoice()); 
     }
+
+    if (humanScore >= 3) {
+        console.log(`You won with a score of ${humanScore}!`);
+    }
+    else {
+        console.log(`You lost with a score of ${humanScore}...`);
+    }
     
 }
 
