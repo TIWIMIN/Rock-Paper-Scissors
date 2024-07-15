@@ -9,6 +9,7 @@ const scoreBoard = document.querySelector("#Score");
 scoreBoard.textContent = `The score is 0 - 0`;
 
 const message = document.querySelector("#Message");
+const winner = document.querySelector("#Winner");
 
 function getComputerChoice() {
     let result = 3 * Math.random();
@@ -82,19 +83,35 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-
+function checkWinner() {
+    if (computerScore >= 5) {
+        winner.textContent = "The Computer Wins!";
+        humanScore = 0;
+        computerScore = 0;
+        message.textContent = '';
+    }
+    if (humanScore >= 5) {
+        winner.textContent = "You Win!"
+        humanScore = 0;
+        computerScore = 0;
+        message.textContent = '';
+    }
+}
 
 rockButton.addEventListener("click", () => {
     playRound("Rock", getComputerChoice());
     scoreBoard.textContent = `The score is ${humanScore} - ${computerScore}`;
+    checkWinner();
 });
 paperButton.addEventListener("click", () => {
     playRound("Paper", getComputerChoice());
     scoreBoard.textContent = `The score is ${humanScore} - ${computerScore}`;
+    checkWinner();
 });
 scissorsButton.addEventListener("click", () => {
     playRound("Scissors", getComputerChoice());
     scoreBoard.textContent = `The score is ${humanScore} - ${computerScore}`;
+    checkWinner();
 });
 
 
